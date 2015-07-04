@@ -1,0 +1,1 @@
+set ite 0\nset jStart 0\nfor { set i 0 } { $i < 18 } { incr i } {\nfor { set j $jStart } { $j < 19 } { incr j } {\nif { $j == 18 } {\n#$ite = expr[$ite + $i + 1]\nset ite [expr $ite + $i + 1]\ncontinue\n}\n$ns connect $p($ite) $p([expr 18*$j + $i])\n#$ns connect $p($ite) $p((18*$j) + $i)\nincr ite\n}\nincr jStart\n}\n
